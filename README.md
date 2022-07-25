@@ -42,12 +42,7 @@ There are two ways to control the sequence of the resulting slides:
 ## Pre-requisites:
 This work assumes you have your machine setup to run python apps locally.  The procedure described here is know to work on python3 on Mac OS Catalina. YMMV. 
 
-> Recommended:  Set up a "virtual env"  to keep your python environment clean.  An example is shown below.
->
-> ````
-> % python3 -m venv ~/virtualenvs/photoslide
-> % source ~/virtualenvs/photoslide/bin/activate
-> ```` 
+Be careful, it is only tested with python 3.7
 
 ## To install and run:
 

@@ -40,10 +40,11 @@ def main():
 
     prs = Presentation(templatefile)
  
-    blank_slide_layout = prs.slide_layouts[6]
+    blank_slide_layout = prs.slide_layouts[0]
 
-    left = top = Inches(0)
-    height = prs.slide_height
+    top = Inches(0.95)
+    left = Inches(0)
+    height = prs.slide_height - Inches(0.95) - Inches(0.5)
 
     folder = os.fsencode(pathtofiles)
 
@@ -51,7 +52,7 @@ def main():
 
     for file in os.listdir(folder):
         filename = os.fsdecode(file)
-        if filename.endswith( ('.jpeg', '.png', '.gif', '.tiff') ): # image files supported by powerpint...
+        if filename.endswith( ('.jpeg', '.png', '.jpg', '.gif', '.tiff') ): # image files supported by powerpint...
             filenames.append(pathtofiles + "/" + filename)
 
     if sort == "f":
@@ -62,6 +63,7 @@ def main():
     for file in filenames:
         slide = prs.slides.add_slide(blank_slide_layout)
         pic = slide.shapes.add_picture(file, left, top, height=height)
+        pic.left = int((prs.slide_width - pic.width) / 2)
 
     prs.save(outputfile)
 
